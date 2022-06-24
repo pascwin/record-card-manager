@@ -4,7 +4,7 @@ const TextArea = (props) => {
     return (
         <div className={classes.control}>
         <label>{props.name}</label>
-            <textarea rows="10" cols="40"> </textarea>
+            <textarea value={props.value} rows="10" cols="40" onChange={props.onChangeTextarea}/>
         </div>      
     )
 }

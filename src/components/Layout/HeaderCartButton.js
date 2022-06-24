@@ -1,16 +1,21 @@
+import { useContext } from "react";
+
 import classes from "./HeaderCartButton.module.css"
+import RecordCardContext from "../../store/record-card-context";
 
 const HeaderCartButton = props => {
-
+    const recordCardCtx = useContext(RecordCardContext)
+    
+    const numberOfRecordCardItems = recordCardCtx.items.length;
     
     return <button className={classes.button}>
         <span className={classes.icon}>
         </span>
         <span>
-            Amount of Card's
+            Total Amount of Card's
         </span>
         <span className={classes.badge}>
-            3
+            {numberOfRecordCardItems}
         </span>
     </button>
 }
