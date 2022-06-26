@@ -8,7 +8,7 @@ const HeaderCartButton = props => {
     
     const numberOfRecordCardItems = recordCardCtx.items.length;
     
-    return <button className={classes.button}>
+    return <button className={classes.button} onClick={props.show}>
         <span className={classes.icon}>
         </span>
         <span>
