@@ -29,7 +29,10 @@ const RecordsTableRow = (props) => {
             <StyledTableCell>{props.answer}</StyledTableCell>
             <StyledTableCell align="right">{props.category}</StyledTableCell>
             <StyledTableCell align="right">{props.stage}</StyledTableCell>
-            <StyledTableCell align="right"><button onClick={props.remove.bind(null, props.id)}>Delete</button></StyledTableCell>
+            <StyledTableCell align="center">
+                <button onClick={props.edit.bind(null, props.id)}>Edit</button>
+                <button onClick={props.remove.bind(null, props.id)}>Delete</button>
+            </StyledTableCell>
         </StyledTableRow>
     )
 }

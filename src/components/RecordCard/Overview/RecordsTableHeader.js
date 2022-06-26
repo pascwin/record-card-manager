@@ -6,7 +6,7 @@ import TableRow from '@mui/material/TableRow';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
-        backgroundColor: "#220e17",
+        backgroundColor: "#4f005f",
         color: theme.palette.common.white,
     },
     [`&.${tableCellClasses.body}`]: {
@@ -22,7 +22,7 @@ const RecordsHeader = () => {
                 <StyledTableCell >Answer</StyledTableCell>
                 <StyledTableCell align="right">Category</StyledTableCell>
                 <StyledTableCell align="right">Stage</StyledTableCell>
-                <StyledTableCell align="right">Actions</StyledTableCell>
+                <StyledTableCell align="center">Actions</StyledTableCell>
             </TableRow>
         </TableHead>
     )

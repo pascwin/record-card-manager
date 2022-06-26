@@ -7,8 +7,9 @@ import Paper from '@mui/material/Paper';
 import RecordsHeader from './RecordsTableHeader';
 import RecordsTableRow from './RecordsTableRow';
 import RecordCardContext from '../../../store/record-card-context';
+import classes from "./RecordsTable.module.css"
 
-const RecordsTable = () => {
+const RecordsTable = (props) => {
 
     const recordCardCtx = useContext(RecordCardContext);
 
@@ -21,9 +22,15 @@ const RecordsTable = () => {
         recordCardCtx.removeItem(id);
     }
 
+    const recordCardEditHandler = (id) => {
+        recordCardCtx.editItem(id);
+        props.show()
+    }
+
     return (
-        <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 700 }} aria-label="customized table">
+        <div className={classes.table}>
+        <TableContainer component={Paper} >
+            <Table sx={{ minWidth: 700 }} aria-label="customized table" >
                 <RecordsHeader />
                 <TableBody>
                     {
@@ -35,7 +42,8 @@ const RecordsTable = () => {
                                     question={card.question}
                                     answer={card.answer}
                                     category={card.category}
-                                    state={card.stage}
+                                    stage={card.stage}
+                                    edit={recordCardEditHandler}
                                     remove={recordCardRemoveHandler}
                                  />
                             )
@@ -45,6 +53,7 @@ const RecordsTable = () => {
                 </TableBody>
             </Table>
         </TableContainer>
+        </div>
     );
 }
 

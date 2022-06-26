@@ -1,8 +1,8 @@
 import Header from "./components/Layout/Header";
-import AddCardForm from "./components/RecordCard/Add/AddCardForm";
 import RecordCardProvider from "./store/RecordCardProvider";
 import RecordsTable from "./components/RecordCard/Overview/RecordsTable";
 import { useState } from "react";
+import EditForm from "./components/RecordCard/Edit/EditForm";
 
 function App() {
   const [showTable, setShowTable] = useState(false)
@@ -11,12 +11,16 @@ function App() {
     setShowTable(true)
   }
 
+  const back = () => {
+    setShowTable(false)
+  }
+
   return (
     <RecordCardProvider>
       <Header show={show} />
       <main>
       {
-        showTable ?  <RecordsTable /> : <AddCardForm />
+        showTable ?  <EditForm back={back} /> : <RecordsTable show={show} /> 
       }
       </main>
     </RecordCardProvider>
