@@ -9,7 +9,7 @@ import RecordsTableRow from './RecordsTableRow';
 import RecordCardContext from '../../../store/record-card-context';
 import classes from "./RecordsTable.module.css"
 
-const RecordsTable = (props) => {
+const RecordsTable = () => {
 
     const recordCardCtx = useContext(RecordCardContext);
 
@@ -24,7 +24,6 @@ const RecordsTable = (props) => {
 
     const recordCardEditHandler = (id) => {
         recordCardCtx.editItem(id);
-        props.show()
     }
 
     return (

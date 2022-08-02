@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import { styled } from '@mui/material/styles';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
@@ -30,7 +32,7 @@ const RecordsTableRow = (props) => {
             <StyledTableCell align="right">{props.category}</StyledTableCell>
             <StyledTableCell align="right">{props.stage}</StyledTableCell>
             <StyledTableCell align="center">
-                <button onClick={props.edit.bind(null, props.id)}>Edit</button>
+                <Link to={`/edit-record/${props.id}`}><button onClick={props.edit.bind(null, props.id)}>Edit</button></Link>
                 <button onClick={props.remove.bind(null, props.id)}>Delete</button>
             </StyledTableCell>
         </StyledTableRow>

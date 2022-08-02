@@ -23,7 +23,6 @@ const recordCardReducer = (state, action) => {
         updatedItems = state.items.filter(item => {
             return item.id !== action.id;
         })
-        console.log(defaultRecordCardState)
         return {
             items: updatedItems,
             itemToEdit: {}

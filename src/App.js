@@ -1,28 +1,29 @@
+import { Route, Switch, Redirect } from "react-router-dom";
+
 import Header from "./components/Layout/Header";
 import RecordCardProvider from "./store/RecordCardProvider";
-import RecordsTable from "./components/RecordCard/Overview/RecordsTable";
-import { useState } from "react";
-import EditForm from "./components/RecordCard/Edit/EditForm";
+import RecordCardTable from "./pages/RecordCardTable.js"
+import EditRecordCard from "./pages/EditRecordCard";
+import AddRecordCards from "./pages/AddRecordCards";
+
 
 function App() {
-  const [showTable, setShowTable] = useState(false)
-
-  const show = () => {
-    setShowTable(true)
-  }
-
-  const back = () => {
-    setShowTable(false)
-  }
 
   return (
     <RecordCardProvider>
-      <Header show={show} />
-      <main>
-      {
-        showTable ?  <EditForm back={back} /> : <RecordsTable show={show} /> 
-      }
-      </main>
+      <Header />
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <Switch>
+        <Route path="/" exact><Redirect to="/record-table" /></Route>
+        <Route path="/record-table"><RecordCardTable /></Route>
+        <Route path="/edit-record/:recordId"><EditRecordCard /></Route>
+        <Route path="/add-records"><AddRecordCards /></Route>
+      </Switch>
     </RecordCardProvider>
   );
 }
